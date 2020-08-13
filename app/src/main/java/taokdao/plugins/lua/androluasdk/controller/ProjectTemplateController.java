@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,10 +17,10 @@ import taokdao.api.template.project.ProjectTemplatePool;
 import taokdao.api.template.project.wrapped.ProjectTemplate;
 import taokdao.plugins.lua.androluasdk.AConstant;
 import taokdao.plugins.lua.androluasdk.R;
+import taokdao.plugins.setup.io.Filej;
 import tiiehenry.android.ui.dialogs.api.callback.InputCallback;
 import tiiehenry.android.ui.dialogs.api.strategy.Dialogs;
 import tiiehenry.android.ui.dialogs.api.strategy.input.IInputDialog;
-import tiiehenry.io.Filej;
 
 public class ProjectTemplateController {
     private ProjectTemplate projectTemplate;
@@ -32,7 +33,7 @@ public class ProjectTemplateController {
     public void onInit(@NonNull final IMainContext iMainContext, final PluginManifest pluginManifest) {
         projectTemplate = new ProjectTemplate(
                 new Properties(AConstant.Project_Template_ID, "AndroLua+ Project", "project for AndroLua+"),
-                pluginContext.getDrawable(R.mipmap.ic_launcher),
+                ContextCompat.getDrawable(pluginContext,R.mipmap.ic_launcher),
                 file -> showCreateDialog(iMainContext, file, pluginManifest.pluginDir), null);
         ProjectTemplatePool.getInstance().add(projectTemplate);
     }
