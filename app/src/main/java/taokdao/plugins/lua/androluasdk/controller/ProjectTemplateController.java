@@ -1,8 +1,5 @@
 package taokdao.plugins.lua.androluasdk.controller;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
 
@@ -13,35 +10,30 @@ import taokdao.api.data.bean.Properties;
 import taokdao.api.main.IMainContext;
 import taokdao.api.main.action.MainAction;
 import taokdao.api.plugin.bean.PluginManifest;
+import taokdao.api.plugin.entrance.BaseDynamicPluginEntrance;
 import taokdao.api.template.project.ProjectTemplatePool;
 import taokdao.api.template.project.wrapped.ProjectTemplate;
-import taokdao.plugins.lua.androluasdk.AConstant;
+import taokdao.plugins.lua.androluasdk.PluginConstant;
 import taokdao.plugins.lua.androluasdk.R;
 import taokdao.plugins.setup.io.Filej;
 import tiiehenry.android.ui.dialogs.api.callback.InputCallback;
 import tiiehenry.android.ui.dialogs.api.strategy.Dialogs;
 import tiiehenry.android.ui.dialogs.api.strategy.input.IInputDialog;
 
-public class ProjectTemplateController {
+public class ProjectTemplateController  extends BaseDynamicPluginEntrance {
     private ProjectTemplate projectTemplate;
-    private Context pluginContext;
 
-    public void onAttach(Context pluginContext) {
-        this.pluginContext = pluginContext;
-    }
-
-    public void onInit(@NonNull final IMainContext iMainContext, final PluginManifest pluginManifest) {
+    public void onInit(@NonNull final IMainContext iMainContext, @NonNull final PluginManifest pluginManifest) {
         projectTemplate = new ProjectTemplate(
-                new Properties(AConstant.Project_Template_ID, "AndroLua+ Project", "project for AndroLua+"),
+                new Properties(PluginConstant.Project_Template_ID, "AndroLua+ Project", "project for AndroLua+"),
                 ContextCompat.getDrawable(pluginContext,R.mipmap.ic_launcher),
                 file -> showCreateDialog(iMainContext, file, pluginManifest.pluginDir), null);
         ProjectTemplatePool.getInstance().add(projectTemplate);
     }
 
-    public void onDestroy(@NonNull IMainContext iMainContext, PluginManifest pluginManifest) {
+    public void onDestroy(@NonNull IMainContext iMainContext, @NonNull PluginManifest pluginManifest) {
         ProjectTemplatePool.getInstance().remove(projectTemplate);
     }
-
 
     private void showCreateDialog(@NonNull final IMainContext main, final File currentDir, final File pluginDir) {
         Dialogs.global.asInput()

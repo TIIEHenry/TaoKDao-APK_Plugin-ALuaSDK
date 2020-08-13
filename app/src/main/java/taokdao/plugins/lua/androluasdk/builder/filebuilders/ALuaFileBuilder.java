@@ -14,11 +14,11 @@ import taokdao.api.builder.IBuildOption;
 import taokdao.api.builder.wrapped.BuildOption;
 import taokdao.api.data.bean.Properties;
 import taokdao.api.file.build.IFileBuilder;
-import taokdao.plugins.lua.androluasdk.AConstant;
+import taokdao.plugins.lua.androluasdk.PluginConstant;
 
 public class ALuaFileBuilder implements IFileBuilder {
     BuildOption<File> runWithAndroLua = new BuildOption<File>(
-            new Properties(AConstant.FileBuilder.ANDROLUA_RUNNER + ".run", "runWithAndroLua+")
+            new Properties(PluginConstant.FileBuilder.ANDROLUA_RUNNER + ".run", "runWithAndroLua+")
             , (main, config, option) -> {
         try {
             Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -37,7 +37,7 @@ public class ALuaFileBuilder implements IFileBuilder {
     @NonNull
     @Override
     public String id() {
-        return AConstant.FileBuilder.ANDROLUA_RUNNER;
+        return PluginConstant.FileBuilder.ANDROLUA_RUNNER;
     }
 
     @NonNull

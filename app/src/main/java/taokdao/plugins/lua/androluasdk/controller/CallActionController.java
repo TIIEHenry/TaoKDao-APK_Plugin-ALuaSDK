@@ -6,8 +6,9 @@ import androidx.annotation.NonNull;
 
 import taokdao.api.main.IMainContext;
 import taokdao.api.plugin.bean.PluginManifest;
+import taokdao.api.plugin.entrance.BaseDynamicPluginEntrance;
 
-public class CallActionController {
+public class CallActionController extends BaseDynamicPluginEntrance {
 
 
     public void onCall(@NonNull IMainContext iMainContext, PluginManifest pluginManifest) {

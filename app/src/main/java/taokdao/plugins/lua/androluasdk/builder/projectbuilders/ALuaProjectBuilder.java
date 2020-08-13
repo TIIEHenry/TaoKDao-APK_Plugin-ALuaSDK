@@ -17,7 +17,7 @@ import taokdao.api.data.bean.Properties;
 import taokdao.api.main.IMainContext;
 import taokdao.api.project.bean.Project;
 import taokdao.api.project.build.IProjectBuilder;
-import taokdao.plugins.lua.androluasdk.AConstant;
+import taokdao.plugins.lua.androluasdk.PluginConstant;
 
 public class ALuaProjectBuilder implements IProjectBuilder {
     private final IMainContext mainContext;
@@ -69,6 +69,6 @@ public class ALuaProjectBuilder implements IProjectBuilder {
     @NonNull
     @Override
     public String id() {
-        return AConstant.ProjectBuilder.ANDROLUA_RUNNER;
+        return PluginConstant.ProjectBuilder.ANDROLUA_RUNNER;
     }
 }
