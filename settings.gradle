@@ -1,0 +1,5 @@
+rootProject.name = 'ALuaSDK'
+include ':app'
+
+includeBuild '../TaoKDao-API'
+//includeBuild '../TaoKDao-Plugin-Setup'

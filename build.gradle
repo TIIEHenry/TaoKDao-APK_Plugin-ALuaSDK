@@ -1,0 +1,54 @@
+buildscript {
+    //加载自定义依赖版本库
+
+    ext.kotlin_version = "1.3.72"
+    ext.build_gradle_version = '3.6.3'
+
+    def propertiesFile = file("file://D:/Android/KEY/key.properties")
+    Properties keyProps = new Properties()
+    if (propertiesFile.canRead()) {
+        keyProps.load(new FileInputStream(propertiesFile))
+    } else {
+        throw new GradleException("Could not read key.properties:"+propertiesFile.absolutePath)
+    }
+    ext.keyAlias = keyProps['keyAlias'].toString()
+    ext.storeFile = file(keyProps['storeFile'].toString())
+    ext.storePassword = keyProps['storePassword'].toString()
+    ext.keyPassword = keyProps['keyPassword'].toString()
+
+    ext.versionCode = new Date().format('yyMMdd').toInteger()
+    ext.versionName = new Date().format('yy.MM.dd')
+
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://maven.fabric.io/public' }
+        google()
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:$build_gradle_version"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+allprojects {
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
+        maven { url 'https://maven.aliyun.com/repository/google/' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
+        maven { url 'https://dl.bintray.com/ppartisan/maven/' }
+        maven { url "https://clojars.org/repo/" }
+        maven { url "https://jitpack.io" }
+        mavenLocal()
+        mavenCentral()
+        google()
+    }
+}
+
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+
+android {
+    ndkVersion '21.0.6113669'
+    signingConfigs {
+        release {
+            keyAlias rootProject.ext.keyAlias
+            storeFile rootProject.ext.storeFile
+            storePassword rootProject.ext.storePassword
+            keyPassword rootProject.ext.keyPassword
+        }
+    }
+    compileSdkVersion 29
+    defaultConfig {
+        applicationId "taokdao.plugins.lua.androluasdk"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+//        ndk { abiFilters "armeabi-v7a" }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+android.applicationVariants.all { variant ->
+    variant.outputs.each { output ->
+        def name=rootProject.name
+        def versionName = variant.versionName
+        def buildType = variant.buildType.name
+        output.outputFileName = "${name}_v${versionName}_${buildType}.apk"
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "taokdao.plugins.setup:public_library:+"
+
+    implementation 'androidx.fragment:fragment:1.2.5'
+}

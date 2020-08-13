@@ -1,0 +1,31 @@
+{
+  "name": "LuaProject",
+  "builder": "taokdao.plugins.lua.androluasdk",
+  "plugins": [
+    {
+      "id": "taokdao.explorers.projectfiles",
+      "parameters": []
+    },
+    {
+      "id": "taokdao.explorers.projectstructure",
+      "parameters": [
+        {
+          "folders": [
+            {
+              "alias": "lua",
+              "paths": ["lua/"]
+            }
+          ],
+          "files": [
+            {
+              "alias": "init.lua",
+              "path": "lua/init.lua"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "projects": [],
+  "settings": {}
+}

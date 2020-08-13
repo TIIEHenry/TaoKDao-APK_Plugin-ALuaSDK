@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="taokdao.plugins.lua.androluasdk">
+
+    <application
+        android:icon="@mipmap/ic_launcher"
+        android:label="AndroLua+ SDK"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        tools:ignore="GoogleAppIndexingWarning,UnusedAttribute"
+        tools:replace="icon, label,roundIcon">
+
+    </application>
+
+</manifest>
