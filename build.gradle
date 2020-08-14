@@ -20,10 +20,7 @@ buildscript {
     ext.versionName = new Date().format('yy.MM.dd')
 
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
-        maven { url 'https://maven.aliyun.com/repository/google/' }
         maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
-        maven { url 'https://maven.fabric.io/public' }
         google()
         mavenLocal()
         mavenCentral()
@@ -37,9 +34,6 @@ allprojects {
     repositories {
         maven { url 'https://maven.aliyun.com/repository/public/' } //jcenter和central
         maven { url 'https://maven.aliyun.com/repository/google/' }
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin/' }
-        maven { url 'https://dl.bintray.com/ppartisan/maven/' }
-        maven { url "https://clojars.org/repo/" }
         maven { url "https://jitpack.io" }
         mavenLocal()
         mavenCentral()
