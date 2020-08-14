@@ -20,13 +20,13 @@ import tiiehenry.android.ui.dialogs.api.callback.InputCallback;
 import tiiehenry.android.ui.dialogs.api.strategy.Dialogs;
 import tiiehenry.android.ui.dialogs.api.strategy.input.IInputDialog;
 
-public class ProjectTemplateController  extends BaseDynamicPluginEntrance {
+public class ProjectTemplateController extends BaseDynamicPluginEntrance {
     private ProjectTemplate projectTemplate;
 
     public void onInit(@NonNull final IMainContext iMainContext, @NonNull final PluginManifest pluginManifest) {
         projectTemplate = new ProjectTemplate(
-                new Properties(PluginConstant.Project_Template_ID, "AndroLua+ Project", "project for AndroLua+"),
-                ContextCompat.getDrawable(pluginContext,R.mipmap.ic_launcher),
+                new Properties(PluginConstant.ProjectTemplate.ALUA_RUNNER, "AndroLua+ Project", "project for AndroLua+"),
+                ContextCompat.getDrawable(pluginContext, R.mipmap.ic_launcher),
                 file -> showCreateDialog(iMainContext, file, pluginManifest.pluginDir), null);
         ProjectTemplatePool.getInstance().add(projectTemplate);
     }

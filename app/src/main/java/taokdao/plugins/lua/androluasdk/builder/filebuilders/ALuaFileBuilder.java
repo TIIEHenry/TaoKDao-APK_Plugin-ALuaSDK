@@ -18,7 +18,7 @@ import taokdao.plugins.lua.androluasdk.PluginConstant;
 
 public class ALuaFileBuilder implements IFileBuilder {
     BuildOption<File> runWithAndroLua = new BuildOption<File>(
-            new Properties(PluginConstant.FileBuilder.ANDROLUA_RUNNER + ".run", "runWithAndroLua+")
+            new Properties(PluginConstant.FileBuilder.ALUA_RUNNER + ".run", "runWithAndroLua+")
             , (main, config, option) -> {
         try {
             Intent intent = new Intent(Intent.ACTION_MAIN);
@@ -37,7 +37,7 @@ public class ALuaFileBuilder implements IFileBuilder {
     @NonNull
     @Override
     public String id() {
-        return PluginConstant.FileBuilder.ANDROLUA_RUNNER;
+        return PluginConstant.FileBuilder.ALUA_RUNNER;
     }
 
     @NonNull

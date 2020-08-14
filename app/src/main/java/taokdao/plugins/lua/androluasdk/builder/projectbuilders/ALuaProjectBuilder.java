@@ -24,7 +24,7 @@ public class ALuaProjectBuilder implements IProjectBuilder {
 
     private List<IBuildOption<Project>> buildOptionList = new ArrayList<>();
     private BuildOption<Project> runWithAndroLuaPro = new BuildOption<>(
-            new Properties(ALuaProjectBuilder.class.getPackage().getName(), "runWithAndroLua+"),
+            new Properties(PluginConstant.ProjectBuilder.ALUA_RUNNER_RUN_WITH_ANDROLUAPRO, "runWithAndroLua+"),
             new IBuildCallback<Project>() {
                 @Override
                 public boolean onBuild(@NonNull IMainContext main, @NonNull Project config, @NonNull IBuildOption<Project> option) {
@@ -69,6 +69,6 @@ public class ALuaProjectBuilder implements IProjectBuilder {
     @NonNull
     @Override
     public String id() {
-        return PluginConstant.ProjectBuilder.ANDROLUA_RUNNER;
+        return PluginConstant.ProjectBuilder.ALUA_RUNNER;
     }
 }
