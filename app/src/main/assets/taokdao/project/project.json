@@ -1,6 +1,6 @@
 {
   "name": "LuaProject",
-  "builder": "taokdao.project.builder.lua.runner",
+  "builder": "taokdao.project.builder.alua.runner",
   "plugins": [
     {
       "id": "taokdao.project.plugin.explorer.files",
