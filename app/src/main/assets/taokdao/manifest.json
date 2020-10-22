@@ -1,31 +1,36 @@
 {
   "id": "taokdao.plugins.lua.androluasdk",
   "type": "TYPE_COMMON",
-
-  "api":"1.0",
+  "api": "1.0",
   "version": {
     "code": 20200728,
     "name": "2020.07.28",
     "downgrade": true
   },
-  "information": {
-    "author": "TIIEHenry",
-    "label": "ALua+ SDK",
-    "icon": "apk",
-    "description": "为AndroLua+开发提供SDK支持、工程模板、构建选项",
-    "tags": ["Lua","AndroLua+"],
-    "readme": "README.MD"
-  },
+  "information": [
+    {
+      "languages": [
+        "default"
+      ],
+      "author": "TIIEHenry",
+      "label": "ALua+ SDK",
+      "icon": "apk",
+      "description": "为AndroLua+开发提供SDK支持、工程模板、构建选项",
+      "tags": [
+        "Lua",
+        "AndroLua+"
+      ],
+      "readme": "README.MD"
+    }
+  ],
   "languages": [
     "zh-CN"
   ],
   "visibility": {
     "type": "1",
     "contents": [
-
     ],
     "suffixes": [
-
     ]
   },
   "engine": {
