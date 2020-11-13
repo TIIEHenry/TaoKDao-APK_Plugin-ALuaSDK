@@ -1,6 +1,9 @@
 {
   "name": "LuaProject",
-  "builder": "taokdao.project.builder.alua.runner",
+  "builder": {
+    "id": "taokdao.project.builder.alua.runner",
+    "parameters": ["-pkg","com.androlua","-cls","com.androlua.LuaActivity"]
+  },
   "plugins": [
     {
       "id": "taokdao.project.plugin.explorer.files",
